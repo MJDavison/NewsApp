@@ -99,8 +99,9 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-
-        uriBuilder.appendQueryParameter("section", section.toLowerCase());
+        if (!section.contentEquals("all")) {
+            uriBuilder.appendQueryParameter("section", section.toLowerCase());
+        }
         uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("show-fields", "thumbnail");
         uriBuilder.appendQueryParameter("api-key", API_KEY);

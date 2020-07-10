@@ -5,13 +5,74 @@
     <string name="settings_title">News Preferences</string>
 
     <string-array name="preferences_sections_labels">
+        <item>All</item>
+
+        <item>UK News</item>
+        <item>World News</item>
+        <item>Business</item>
+        <item>Football</item>
+        <item>Environment</item>
+        <item>UK politics</item>
+        <item>Education</item>
+        <item>Society</item>
+        <item>Science</item>
         <item>@string/preferences_technology_label</item>
+        <item>Global developments</item>
+
+        <item>The Guardian View</item>
+
+        <item>Football</item>
+        <item>General Sports</item>
+
+        <item>Film</item>
+        <item>Music</item>
+        <item>TV and radio</item>
+        <item>Books</item>
+        <item>Art and design</item>
+        <item>Stage</item>
         <item>@string/preferences_games_label</item>
+
+        <item>Fashion</item>
+        <item>Food</item>
+        <item>Travel</item>
+        <item>Health and fitness</item>
+        <item>Money</item>
     </string-array>
 
     <string-array name="preferences_sections_values">
+        <item>all</item>
+
+        <item>uk-news</item>
+        <item>world</item>
+        <item>business</item>
+        <item>football</item>
+        <item>environment</item>
+        <item>politics</item>
+        <item>education</item>
+        <item>society</item>
+        <item>science</item>
         <item>@string/preferences_technology_value</item>
+        <item>global-development</item>
+
+        <item>commentisfree</item>
+
+        <item>football</item>
+        <item>sport</item>
+
+
+        <item>film</item>
+        <item>music</item>
+        <item>tv-and-radio</item>
+        <item>books</item>
+        <item>artanddesign</item>
+        <item>stage</item>
         <item>@string/preferences_games_value</item>
+
+        <item>fashion</item>
+        <item>food</item>
+        <item>travel</item>
+        <item>lifeandstyle</item>
+        <item>money</item>
     </string-array>
 
     <!-- Strings for Section preference-->
