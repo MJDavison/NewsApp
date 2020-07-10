@@ -1,24 +1,24 @@
 package com.example.android.newsapp;
 
 public class Article {
-    final String sectionName;
+    final String articleSectionName;
     final String articleTitle;
     final String articleWebURL;
     final String articleThumbnail;
     final String articleWriter;
-    final String articleReleaseDate;
+    final long articleReleaseDateInMilliseconds;
 
-    public Article(String sectionName, String articleTitle, String articleWebURL, String articleThumbnail, String articleWriter, String articleReleaseDate) {
-        this.sectionName = sectionName;
+    public Article(String sectionName, String articleTitle, String articleWebURL, String articleThumbnail, String articleWriter, long articleReleaseDateInMilliseconds) {
+        this.articleSectionName = sectionName;
         this.articleTitle = articleTitle;
         this.articleWebURL = articleWebURL;
         this.articleThumbnail = articleThumbnail;
         this.articleWriter = articleWriter;
-        this.articleReleaseDate = articleReleaseDate;
+        this.articleReleaseDateInMilliseconds = articleReleaseDateInMilliseconds;
     }
 
-    public String getSectionName() {
-        return sectionName;
+    public String getArticleSectionName() {
+        return articleSectionName;
     }
 
     public String getArticleTitle() {
@@ -29,15 +29,11 @@ public class Article {
         return articleWebURL;
     }
 
-    public String getArticleThumbnail() {
-        return articleThumbnail;
-    }
-
-    public String getArticleWriter(){
+    public String getArticleWriter() {
         return articleWriter;
     }
 
-    public String getArticleReleaseDate() {
-        return articleReleaseDate;
+    public long getArticleReleaseDateInMilliseconds() {
+        return articleReleaseDateInMilliseconds;
     }
 }
