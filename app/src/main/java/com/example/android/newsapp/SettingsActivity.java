@@ -1,34 +1,41 @@
 package com.example.android.newsapp;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.util.Log;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
+
+    private static final String LOG_TAG = SettingsActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+        try {
+            setContentView(R.layout.settings_activity);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "onCreate", e);
+            throw e;
+        }
+
     }
 
-    public static class EarthquakePreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener{
+    public static class ArticlePreferenceFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
         @Override
         public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.settings_main);
+            addPreferencesFromResource(R.xml.preferences_main);
+            String preference = getString(R.string.preferences_section_key);
+            Preference section = findPreference(preference);
+            bindPreferenceSummaryToValue(section);
 
-            Preference minMagnitude = findPreference(getString(R.string.settings_tags_key));
-            bindPreferenceSummaryToValue(minMagnitude);
-
-            Preference orderBy = findPreference(getString(R.string.settings_order_by_key));
-            bindPreferenceSummaryToValue(orderBy);
         }
 
         private void bindPreferenceSummaryToValue(Preference preference) {

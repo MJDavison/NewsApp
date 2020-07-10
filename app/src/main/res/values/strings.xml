@@ -2,17 +2,35 @@
     <string name="app_name">NewsApp</string>
 
     <string name="settings_menu_item">Settings</string>
-    <string name="settings_title">Earthquake Settings</string>
+    <string name="settings_title">News Preferences</string>
 
-    <string name="settings_tag_label">Tag</string>
-    <string name="settings_tags_key" translatable="false">tag</string>
-    <string name="settings_tags_default" translatable="false">it</string>
+    <string-array name="preferences_sections_labels">
+        <item>@string/preferences_technology_label</item>
+        <item>@string/preferences_games_label</item>
+    </string-array>
 
+    <string-array name="preferences_sections_values">
+        <item>@string/preferences_technology_value</item>
+        <item>@string/preferences_games_value</item>
+    </string-array>
 
-    <string name="title_activity_settings">SettingsActivity</string>
+    <!-- Strings for Section preference-->
+    <string name="preferences_section_label">Section</string>
+    <string name="preferences_section_key" translatable="false">sections</string>
+    <string name="preferences_section_default" translatable="false">@string/preferences_technology_value</string>
+
+    <string name="preferences_technology_label">Technology</string>
+    <string name="preferences_technology_value" translatable="false">technology</string>
+
+    <string name="preferences_games_label">Games</string>
+    <string name="preferences_games_value" translatable="false">games</string>
+
 
     <string name="sample_article_title">Coalition announces $190m plan to divert 10m tonnes of waste from landfill</string>
     <string name="image_thumbnail_content_description">Article Thumbnail</string>
     <string name="no_internet_connection">Eh… you should probably connect to the internet first.</string>
     <string name="no_articles_avaliable">Eh? The article list is empty?! What is going on at The Guardian?!</string>
+    <string name="latest_news">Latest News</string>
+
+
 </resources>

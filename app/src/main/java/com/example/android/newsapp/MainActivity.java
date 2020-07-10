@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     private static final String LOG_TAG = MainActivity.class.getSimpleName();
     private static final int ARTICLE_LOADER_ID = 1;
     boolean isConnected;
-    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?api-key=453c106c-a6ef-456b-a096-d8c32e290b11";
+    private static final String API_KEY = "453c106c-a6ef-456b-a096-d8c32e290b11";
+    private static final String GUARDIAN_REQUEST_URL = "https://content.guardianapis.com/search?";
     private TextView mEmptyListView;
     private ArticleAdapter mAdapter;
 
@@ -92,16 +93,18 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
         Log.i(LOG_TAG, "onCreateLoader()");
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        String tags = sharedPrefs.getString(
-                getString(R.string.settings_tags_key),
-                getString(R.string.settings_tags_default));
+        String section = sharedPrefs.getString(
+                getString(R.string.preferences_section_key),
+                getString(R.string.preferences_section_default));
 
         Uri baseUri = Uri.parse(GUARDIAN_REQUEST_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
 
+        uriBuilder.appendQueryParameter("section", section.toLowerCase());
         uriBuilder.appendQueryParameter("show-tags", "contributor");
         uriBuilder.appendQueryParameter("show-fields", "thumbnail");
-        uriBuilder.appendQueryParameter("tags", tags);
+        uriBuilder.appendQueryParameter("api-key", API_KEY);
+
 
         return new ArticleLoader(this, uriBuilder.toString());
 
@@ -136,7 +139,7 @@ public class MainActivity extends AppCompatActivity implements LoaderCallbacks<L
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_preferences) {
             Intent settingsIntent = new Intent(this, SettingsActivity.class);
             startActivity(settingsIntent);
             return true;
